@@ -57,7 +57,7 @@ export const config = {
       browserName: "chrome",
       "goog:chromeOptions": {
         args: [
-          // '--headless',
+          '--headless',
           "--start-maximized",
           "--ignore-certificate-errors",
           "--incognito",
