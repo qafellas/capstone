@@ -23,13 +23,13 @@ describe('Login Tests', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.login( process.env.email, process.env.password )
         const homePageHeader = await HomePage.homePageTitle.getText()
-        expect(homePageHeader).toHaveText('Contact List1')
+        expect(homePageHeader).toHaveText('Contact List')
         await HomePage.logoutBtn.click()
     })
 
     it('should register new user', async () => {
         await LoginPage.signUpBtn.click()
-        const newUserEmail = `user-${getRandomNum()}@gmail.com`
+        const newUserEmail = `user-${getRandomNum()}@gmail.comkl`
         const newUserPassword = `user-${getRandomNum()}1234.`
         await SignUpPage.fillSignUpForm(newUserEmail, newUserPassword)
         const homePageHeader = await HomePage.homePageTitle.getText()
