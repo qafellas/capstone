@@ -28,7 +28,7 @@ jobs:
           node-version: '18'
 
       - name : ⚙️ Install the dependencies
-        run : npm install --force
+        run : npm install --legacy-peer-deps
 
       - name : 🧪 Run wdio test scripts
         run : |
