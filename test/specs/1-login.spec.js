@@ -42,7 +42,7 @@ describe('Login Tests', () => {
         await SignUpPage.fillSignUpForm( process.env.email, process.env.password)
         const error = SignUpPage.errorMsg
         await error.waitForDisplayed()
-        expect(await error.getText()).toHaveText('Email b address is already in use')
+        await expect(await error.getText()).toHaveText('Email b address is already in use')
     })
 
 })
