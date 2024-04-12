@@ -3,3 +3,4 @@ output/
 jsonReporter.json
 testResults.json
 package-lock.json
+mochaOutput/*.json
