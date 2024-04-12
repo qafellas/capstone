@@ -14,10 +14,10 @@ let slackPayload = function () {
     //console.log(results)
     let attachment = {}
     let endpoint = process.env.baseUrl;
-    let githubProject = process.env.GITHUB_REPOSITORY
+    let githubProject = process.env.GITHUB_SERVER_URL + '/' + process.env.GITHUB_REPOSITORY
     let githubRunId = process.env.GITHUB_RUN_ID;
     let testRunHtml = process.env.TEST_RUN_HTML;
-    let messageText = `*Title:* \`Capstone UI Tests\`\n\n*Env:* ${endpoint}\n\n*Driver:* ${results.capabilities[0].browserName} (${results.capabilities[0].browserVersion}) on ${results.capabilities[0].platformName}\n\n*Github Run:* ${githubProject}/actions/runs/${githubRunId}\n\n:result: *Test Run HTML:* ${testRunHtml}\n\n*Total Test Cases:* ${results.state.passed+results.state.skipped+results.state.failed}\n\n:white_check_mark: *Passed: ${results.state.passed}* | :x: *Failed: ${results.state.failed}* | ⏩ *Skipped: ${results.state.skipped}*\n\n`
+    let messageText = `*Title:* \`Capstone UI Tests\`\n\n*Env:* ${endpoint}\n\n*Driver:* ${results.capabilities[0].browserName} (${results.capabilities[0].browserVersion}) on ${results.capabilities[0].platformName}\n\n*Github Run:* ${githubProject}/actions/runs/${githubRunId}\n\n*Test Run HTML:* ${testRunHtml}\n\n*Total Test Cases:* ${results.state.passed+results.state.skipped+results.state.failed}\n\n:white_check_mark: *Passed: ${results.state.passed}* | :x: *Failed: ${results.state.failed}* | ⏩ *Skipped: ${results.state.skipped}*\n\n`
 
     if(results.state.failed>0){
         attachment = {
