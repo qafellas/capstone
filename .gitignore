@@ -1,0 +1,5 @@
+node_modules
+output/
+jsonReporter.json
+testResults.json
+package-lock.json
