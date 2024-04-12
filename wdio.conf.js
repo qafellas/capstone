@@ -1,7 +1,7 @@
 import ApiUtil from "./test/utils/api.js";
 import path from "path";
 import fs from "fs";
-const mergeResults = require ('wdio-json-reporter/mergeResults')
+import mergeResults from '@wdio/spec-reporter/mergeResults'
 
 export const config = {
   //
