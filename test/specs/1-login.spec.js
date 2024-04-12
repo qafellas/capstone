@@ -23,7 +23,7 @@ describe('Login Tests', () => {
     it('should login with valid credentials', async () => {
         await LoginPage.login( process.env.email, process.env.password )
         const homePageHeader = await HomePage.homePageTitle.getText()
-        expect(homePageHeader).toHaveText('Contact List')
+        expect(homePageHeader).toHaveText('Contact List1')
         await HomePage.logoutBtn.click()
     })
 
