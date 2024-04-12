@@ -34,7 +34,7 @@ describe('Login Tests', () => {
     it('should edit existing contact', async () => {
         await ContactsPage.contactsTableRow.click()
         await ContactsPage.editContactBtn.click()
-        await ContactsPage.firstNameBox.waitForDisplayed()
+        await browser.pause(2000)
         await ContactsPage.firstNameBox.clearValue()
         await ContactsPage.firstNameBox.setValue(editedFirstName)
         await ContactsPage.lastNameBox.clearValue()
