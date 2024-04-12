@@ -28,7 +28,7 @@ jobs:
           node-version: '18'
 
       - name : ⚙️ Install the dependencies
-        run : npm install
+        run : npm install --force
 
       - name : 🧪 Run wdio test scripts
         run : |
