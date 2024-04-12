@@ -1,5 +1,5 @@
 import axios from "axios";
-import { expect } from "@wdio/globals";
+import { expect } from "chai";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -30,7 +30,7 @@ class APIUtil {
         data,
         config
       );
-      expect(response.status).toEqual(201);
+      expect(response.status).to.equal(201);
     } catch (error) {
       console.log(`Error: ${error.message} - ${error.response.data.message}`);
     }
@@ -55,7 +55,7 @@ class APIUtil {
         data,
         config
       );
-      expect(response.status).toEqual(200);
+      expect(response.status).to.equal(200);
       return response.data.token
     } catch (error) {
       console.log(`Error: ${error.message} - ${error.response.data.message}`);
@@ -76,7 +76,7 @@ class APIUtil {
           `${process.env.baseUrl}${process.env.deleteUser}`,
            config
         );
-        expect(response.status).toEqual(200);
+        expect(response.status).to.equal(200);
       } catch (error) {
         console.log(`Error: ${error.message} - ${error.response.data.message}`);
       }

@@ -25,7 +25,10 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/specs/1-login.spec.js", "./test/specs/2-contacts.spec.js"],
+  specs: [
+    "./test/specs/1-login.spec.js", 
+    "./test/specs/2-contacts.spec.js"
+],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -57,7 +60,7 @@ export const config = {
       browserName: "chrome",
       "goog:chromeOptions": {
         args: [
-          '--headless',
+          //'--headless',
           "--start-maximized",
           "--ignore-certificate-errors",
           "--incognito",

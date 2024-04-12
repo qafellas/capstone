@@ -1,4 +1,5 @@
-import { expect, browser } from '@wdio/globals'
+import { browser } from '@wdio/globals'
+import { expect } from 'chai'
 import {getRandomNum} from '../utils/randomNum.js'
 import LoginPage from '../pageobjects/login.page.js'
 import HomePage from '../pageobjects/home.page.js'
@@ -17,13 +18,14 @@ describe('Login Tests', () => {
         await LoginPage.login( 'xzsgdgdg', 'gdxdfd' )
         const error = LoginPage.errorMsg
         await error.waitForDisplayed()
-        expect(await error.getText()).toHaveText('Incorrect username or password')
+        expect(await error.getText()).to.equal('Incorrect username or password')
     })
 
     it('should login with valid credentials', async () => {
         await LoginPage.login( process.env.email, process.env.password )
+        await HomePage.addContactBtn.waitForDisplayed()
         const homePageHeader = await HomePage.homePageTitle.getText()
-        expect(homePageHeader).toHaveText('Contact List')
+        expect(homePageHeader).to.equal('Contact List')
         await HomePage.logoutBtn.click()
     })
 
@@ -32,8 +34,9 @@ describe('Login Tests', () => {
         const newUserEmail = `user-${getRandomNum()}@gmail.com`
         const newUserPassword = `user-${getRandomNum()}1234.`
         await SignUpPage.fillSignUpForm(newUserEmail, newUserPassword)
+        await HomePage.addContactBtn.waitForDisplayed()
         const homePageHeader = await HomePage.homePageTitle.getText()
-        expect(homePageHeader).toHaveText('Contact List')
+        expect(homePageHeader).to.equal('Contact List')
         await HomePage.logoutBtn.click()
     })
 
@@ -42,7 +45,7 @@ describe('Login Tests', () => {
         await SignUpPage.fillSignUpForm( process.env.email, process.env.password)
         const error = SignUpPage.errorMsg
         await error.waitForDisplayed()
-        await expect(await error.getText()).toHaveText('Email b address is already in use')
+        expect(await error.getText()).to.equal('Email b  address is already in use')
     })
 
 })
