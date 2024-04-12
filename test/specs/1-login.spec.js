@@ -29,7 +29,7 @@ describe('Login Tests', () => {
 
     it('should register new user', async () => {
         await LoginPage.signUpBtn.click()
-        const newUserEmail = `user-${getRandomNum()}@gmail.comkl`
+        const newUserEmail = `user-${getRandomNum()}@gmail.com`
         const newUserPassword = `user-${getRandomNum()}1234.`
         await SignUpPage.fillSignUpForm(newUserEmail, newUserPassword)
         const homePageHeader = await HomePage.homePageTitle.getText()
@@ -42,7 +42,7 @@ describe('Login Tests', () => {
         await SignUpPage.fillSignUpForm( process.env.email, process.env.password)
         const error = SignUpPage.errorMsg
         await error.waitForDisplayed()
-        expect(await error.getText()).toHaveText('Email address is already in use')
+        expect(await error.getText()).toHaveText('Email b address is already in use')
     })
 
 })
