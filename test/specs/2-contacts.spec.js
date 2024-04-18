@@ -5,7 +5,7 @@ import LoginPage from '../pageobjects/login.page.js'
 import HomePage from '../pageobjects/home.page.js'
 import ContactsPage from '../pageobjects/contacts.page.js'
 
-describe('Login Tests', () => {
+describe('Contact Tests', () => {
     const contactFirstName = 'Ryan'
     const contactLastName = 'Holmes'
     const editedFirstName = 'Robert'
