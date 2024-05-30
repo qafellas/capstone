@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu May 30 03:57:54 GMT 2024","Thu May 30 03:57:55 GMT 2024","815","","Login Tests","","","","should login with valid credentials",""
+"passed","Thu May 30 03:58:04 GMT 2024","Thu May 30 03:58:06 GMT 2024","1924","","Contact Tests","","","","should create new contact",""
+"passed","Thu May 30 03:58:06 GMT 2024","Thu May 30 03:58:09 GMT 2024","3200","","Contact Tests","","","","should edit existing contact",""
+"passed","Thu May 30 03:57:53 GMT 2024","Thu May 30 03:57:54 GMT 2024","674","","Login Tests","","","","should get error with invalid credentils ",""
+"passed","Thu May 30 03:57:57 GMT 2024","Thu May 30 03:57:58 GMT 2024","1539","","Login Tests","","","","should get error for registering new user with existing email",""
+"passed","Thu May 30 03:57:55 GMT 2024","Thu May 30 03:57:57 GMT 2024","1709","","Login Tests","","","","should register new user",""
+"passed","Thu May 30 03:58:09 GMT 2024","Thu May 30 03:58:09 GMT 2024","159","","Contact Tests","","","","should delete existing contact",""
