@@ -49,7 +49,7 @@ describe('Contact Tests', () => {
         await ContactsPage.contactsTableRow.click()
         await ContactsPage.deleteContactBtn.click()
         const alertMessage = await browser.getAlertText()
-        expect(alertMessage).to.equal('Are you sure you want to delete this contactghh?')
+        expect(alertMessage).to.equal('Are you sure you want to delete this contact?')
         await browser.acceptAlert()
     })
 
