@@ -88,21 +88,12 @@ jobs:
             echo "Check run URL: ${{ steps.test_report.outputs.url }}"
             echo "Check run URL HTML: ${{ steps.test_report.outputs.url_html }}"
 
-      - name: 🕐 Sleep for 10 sec
-        if: always()
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '10s'
-
       - name: 🔗 Read Test Report URL
         if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          jobs_url="repos/${GITHUB_REPOSITORY}/actions/runs/${{ github.run_id }}/jobs"
-          json_data=$(gh api $jobs_url)
-          result_url=$(echo $json_data | jq -r '.jobs[] | select(.name == "🧪📊 WebdriverIO Tests") | .html_url')
-          echo "TEST_RUN_HTML=$result_url" | tee -a $GITHUB_ENV
+          echo "TEST_RUN_HTML=${{ steps.test_report.outputs.url_html }}" | tee -a $GITHUB_ENV
 
       - name : 📈 Create Json report
         if: always()
