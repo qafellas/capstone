@@ -76,7 +76,7 @@ export const config = {
       disableWebdriverStepsReporting: true,
       disableWebdriverScreenshotsReporting: false,
     }],
-
+    
   ],
 
   // Options to be passed to Mocha.
@@ -105,10 +105,10 @@ export const config = {
   // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
   // },
 
-  afterTest: async function (test, context, { error, result, duration, passed, retries }) {
+  afterTest: async function(test, context, { error, result, duration, passed, retries }) {
     if (error) {
       await browser.takeScreenshot();
-    }
+  }
   },
 
 
@@ -121,32 +121,23 @@ export const config = {
   onComplete: function () {
     mergeResults("./output/jsonReporter", "results-*", "test-results.json");
     const reportError = new Error('Could not generate Allure report')
-    const generation = spawn('allure', ['generate', 'allure-results', '--clean']);
-
+    const generation = allure(['generate', 'allure-results', '--clean'])
     return new Promise((resolve, reject) => {
-      const generationTimeout = setTimeout(() => {
-        console.error('Allure report generation timed out');
-        reject(reportError);
-      }, 5000);
+      const generationTimeout = setTimeout(
+        () => reject(reportError),
+        10000)
 
-      generation.on('error', (err) => {
-        clearTimeout(generationTimeout);
-        console.error('Error during Allure report generation:', err);
-        reject(reportError);
-      });
-
-      generation.on('exit', (exitCode) => {
-        clearTimeout(generationTimeout);
+      generation.on('exit', function (exitCode) {
+        clearTimeout(generationTimeout)
 
         if (exitCode !== 0) {
-          console.error('Allure report generation failed with exit code:', exitCode);
-          return reject(reportError);
+          return reject(reportError)
         }
 
-        console.log('Allure report successfully generated');
-        resolve();
-      });
-    });
+        console.log('Allure report successfully generated')
+        resolve()
+      })
+    })
   },
 
 };
