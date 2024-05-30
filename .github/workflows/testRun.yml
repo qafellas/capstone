@@ -81,6 +81,7 @@ jobs:
           max-annotations: '30'
 
       - name: Extract Check run URLs
+        if: always()
         run: |
             echo "Available outputs:"
             echo "${{ steps.test_report.outputs }}"
