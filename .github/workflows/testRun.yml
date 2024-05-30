@@ -71,6 +71,7 @@ jobs:
         run: node test/utils/mergeJson.js
 
       - name: 🧪✅❌ Test Report
+        id: test_report
         uses: dorny/test-reporter@v1
         if: success() || failure()    # run this step even if previous step failed.
         with:
@@ -78,6 +79,11 @@ jobs:
           path: testResults.json    # Path to test results
           reporter: mocha-json
           max-annotations: '30'
+
+      - name: Extract Check run URLs
+        run: |
+            echo "Check run URL: ${{ steps.test_report.outputs.check-run-url }}"
+            echo "Check run URL HTML: ${{ steps.test_report.outputs.check-run-url-html }}"
 
       - name: 🕐 Sleep for 10 sec
         if: always()
