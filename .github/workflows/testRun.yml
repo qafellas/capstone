@@ -82,6 +82,8 @@ jobs:
 
       - name: Extract Check run URLs
         run: |
+            echo "Available outputs:"
+            echo "${{ steps.test_report.outputs }}"
             echo "Check run URL: ${{ steps.test_report.outputs.check-run-url }}"
             echo "Check run URL HTML: ${{ steps.test_report.outputs.check-run-url-html }}"
 
