@@ -1,5 +1,5 @@
 {
-  "name": "capstone",
+  "name": "javascript-ui-framework",
   "type": "module",
   "devDependencies": {
     "@babel/core": "^7.24.4",

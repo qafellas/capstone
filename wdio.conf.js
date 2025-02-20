@@ -26,10 +26,10 @@ export const config = {
   capabilities: [
     {
       browserName: "chrome",
-      browserVersion: '124.0.6367.209',
+      //browserVersion: '124.0.6367.209',
       "goog:chromeOptions": {
         args: [
-          "--headless",
+          //"--headless",
           "--start-maximized",
           "--ignore-certificate-errors",
           "--incognito",

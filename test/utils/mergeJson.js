@@ -51,15 +51,15 @@ for (const file of getFiles('./mochaOutput', 'results-')) {
 let combinedJson =  mergeJson(arr[0],arr[1], arr[2], arr[3], arr[4], arr[5], arr[6],arr[7],arr[8],arr[9],arr[10])
 
 for (const pass of combinedJson.passes) {
-    pass.file = pass.file.split('/capstone/capstone/')[1]
+    pass.file = pass.file.split('/javascript-ui-framework/javascript-ui-framework/')[1]
 }
 
 for (const fail of combinedJson.failures) {
-    fail.file = fail.file.split('/capstone/capstone/')[1]
+    fail.file = fail.file.split('/javascript-ui-framework/javascript-ui-framework/')[1]
 }
 
 for (const p of combinedJson.pending) {
-    p.file = p.file.split('/capstone/capstone/')[1]
+    p.file = p.file.split('/javascript-ui-framework/javascript-ui-framework/')[1]
 }
 
 let webdriverIOJson

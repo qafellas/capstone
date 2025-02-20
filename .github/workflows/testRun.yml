@@ -1,5 +1,5 @@
-name: Capstone UI Tests
-run-name: 🚀 Capstone UI Tests - ${{ github.run_number }} - ${{ github.event_name }}
+name:  UI Tests
+run-name: 🚀  UI Tests - ${{ github.run_number }} - ${{ github.event_name }}
 on:
   push:
      branches: [ master ]
@@ -15,7 +15,7 @@ permissions: #write-all
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  capstone-tests:
+  tests:
     runs-on: ubuntu-latest
     steps:
 
